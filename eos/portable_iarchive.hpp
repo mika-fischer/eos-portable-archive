@@ -104,7 +104,11 @@
 #include <boost/integer/endian.hpp>
 #include <boost/math/fpclassify.hpp>
 #else
+#if BOOST_VERSION < 104800
 #include <boost/spirit/home/support/detail/integer/endian.hpp>
+#else
+#include <boost/spirit/home/support/detail/endian/endian.hpp>
+#endif
 #include <boost/spirit/home/support/detail/math/fpclassify.hpp>
 #endif
 
@@ -264,7 +268,11 @@ namespace eos {
 
 				// load the value from little endian - is is then converted
 				// to the target type T and fits it because size <= sizeof(T)
+#if BOOST_VERSION < 104800
 				t = boost::detail::load_little_endian<T, sizeof(T)>(&temp);
+#else
+				t = boost::spirit::detail::load_little_endian<T, sizeof(T)>(&temp);
+#endif
 			}
 
 			else t = 0; // zero optimization
