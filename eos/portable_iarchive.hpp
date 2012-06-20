@@ -403,7 +403,7 @@ namespace eos {
 	};
 
 	// polymorphic portable binary iarchive typdef
-	typedef POLYMORPHIC(portable_iarchive) polymorphic_portable_iarchive;
+	// typedef POLYMORPHIC(portable_iarchive) polymorphic_portable_iarchive;
 	#undef POLYMORPHIC
 
 } // namespace eos
@@ -414,7 +414,7 @@ namespace eos {
 #define BOOST_ARCHIVE_CUSTOM_IARCHIVE_TYPES eos::portable_iarchive
 #else
 BOOST_SERIALIZATION_REGISTER_ARCHIVE(eos::portable_iarchive)
-BOOST_SERIALIZATION_REGISTER_ARCHIVE(eos::polymorphic_portable_iarchive)
+//BOOST_SERIALIZATION_REGISTER_ARCHIVE(eos::polymorphic_portable_iarchive)
 #endif
 
 // if you include this header multiple times and your compiler is picky
